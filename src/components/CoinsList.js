@@ -1,12 +1,13 @@
 
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect, useContext } from 'react'
 import coinApi from '../api/cryptoApi'
 import Coin from './Coin'
+import { WatchListContext } from '../context/watchListContext'
 
 export const CoinsList = () => {
 
 const [coins, setCoins] = useState([])
+const {watchList} = useContext(WatchListContext)
 
 
 useEffect(() => {
@@ -14,7 +15,7 @@ useEffect(() => {
         const response = await coinApi.get('/coins/markets', {
         params: {
             vs_currency: "usd",
-            ids: "bitcoin, ethereum"
+            ids: watchList.join(',')
         }
 
     })
