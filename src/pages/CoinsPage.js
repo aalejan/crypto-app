@@ -3,7 +3,7 @@ import CoinsList from '../components/CoinsList'
 
 export const CoinsPage = () => {
     return (
-        <div>
+        <div >
             <CoinsList />
         </div>
     )
