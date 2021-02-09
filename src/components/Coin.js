@@ -1,12 +1,20 @@
+
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export const Coin = ({coin}) => {
     return (
-        <div>
-            Alex Alej
-          <h1>{coin.name}</h1>
-          <h3>{coin.current_price}</h3>
-        </div>
+      <Link to='/coin'>
+        <li className="coilist-item list-group-item list-group-item-action d-flex justify-content-between ">
+         
+          <span className="text-decoration-none">{coin.current_price}</span>
+          <span className="text-success mr-2">
+            <i className="fas fa-sort-down align-middle mr-1"></i>
+            {coin.price_change_percentage_24h}
+          </span>
+        </li>
+      </Link>
+       
     )
 }
 

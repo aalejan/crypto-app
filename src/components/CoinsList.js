@@ -14,7 +14,7 @@ useEffect(() => {
         const response = await coinApi.get('/coins/markets', {
         params: {
             vs_currency: "usd",
-            ids: "bitcoin"
+            ids: "bitcoin, ethereum"
         }
 
     })
@@ -25,13 +25,19 @@ useEffect(() => {
     pullData()
 }, [])
 
-    const renderedList = coins.map((coin) => {
-        return <Coin key={coin.id} coin ={coin}  />
-    })
+   const renderedList = () => {
+       return(
+           <ul className="coinlist list-group mt-2">
+               {coins.map(coin => {
+                   return <Coin key={coin.id} coin={coin} / > 
+               })}
+           </ul>
+       )
+   }
 
     return (
         <div>
-            {renderedList}
+            {renderedList()}
         </div>
     )
 }
