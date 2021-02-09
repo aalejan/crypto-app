@@ -10,8 +10,12 @@ export const WatchListContextProvider = props => {
         "litecoin"
     ]);
 
+    const deleteCoinHandler = (coinId) =>{
+       setWatchList( watchList.filter((coin) => {return coin !== coinId}))
+    }
+
     return (
-        <WatchListContext.Provider value={{watchList}}>
+        <WatchListContext.Provider value={{watchList, deleteCoinHandler}}>
             {props.children}
         </WatchListContext.Provider>
     )

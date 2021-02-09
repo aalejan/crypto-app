@@ -7,7 +7,7 @@ import { WatchListContext } from '../context/watchListContext'
 export const CoinsList = () => {
 
 const [coins, setCoins] = useState([])
-const {watchList} = useContext(WatchListContext)
+const {watchList, deleteCoinHandler} = useContext(WatchListContext)
 
 
 useEffect(() => {
@@ -19,18 +19,19 @@ useEffect(() => {
         }
 
     })
-    console.log(response.data)
         setCoins(response.data)
     } 
-
-    pullData()
-}, [])
+    if(watchList.length > 0 ){
+         pullData()
+    } else setCoins([]);
+   
+}, [watchList])
 
    const renderedList = () => {
        return(
            <ul className="coinlist list-group mt-2">
                {coins.map(coin => {
-                   return <Coin key={coin.id} coin={coin} / > 
+                   return <Coin key={coin.id} coin={coin} deleteCoin={deleteCoinHandler} / > 
                })}
            </ul>
        )
