@@ -8,6 +8,15 @@ export const CoinInfoPage = () => {
     const [coinData, setCoinData] = useState({})
     const {id} = useParams()
 
+    const formatData= data => {
+        return data.map(el => {
+            return {
+                t: el[0],
+                y: el[1].toFixed(2)
+            }
+        })
+    }
+
 useEffect(() => {
     const pullData = async() => {
 
@@ -42,10 +51,10 @@ useEffect(() => {
 
         ])
         setCoinData({
-            day: day.data.prices,
-            week: week.data.prices,
-            year: year.data.prices,
-            detail: detail.data[0]
+            day: formatData(day.data.prices),
+            week: formatData(week.data.prices),
+            year: formatData(year.data.prices),
+            detail:detail.data[0]
         })
 
     
@@ -58,7 +67,7 @@ useEffect(() => {
     const renderData = () => {
         return (
             <div className="coinlist">
-                <Chart />
+                <Chart data={coinData} />
                 <ChartDetail />
             </div>
         )
