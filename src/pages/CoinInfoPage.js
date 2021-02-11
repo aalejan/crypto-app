@@ -68,7 +68,7 @@ useEffect(() => {
         return (
             <div className="coinlist">
                 <Chart data={coinData} />
-                <ChartDetail />
+                <ChartDetail data={coinData.detail} />
             </div>
         )
     }
