@@ -6,13 +6,17 @@ import CoinsInfoPage from './pages/CoinInfoPage'
 import Header from './components/Header'
 import './styles/App.css'
 import { WatchListContextProvider } from './context/watchListContext'
+import PricesPage from './pages/PricesPage'
+import NavBar from './components/NavBar'
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <WatchListContextProvider>
         <BrowserRouter>
           <Header />
+          <NavBar />
+          <Route path='/Prices' component={PricesPage} />
           <Route exact path= "/" component={CoinsPage} />
           <Route path='/coins/:id' component={CoinInfoPage} />
         </BrowserRouter>
