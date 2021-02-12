@@ -5,6 +5,7 @@ import Coin from '../components/Coin'
 const PricesPage = () => {
 
     const [coins, setCoins] = useState([])
+    const [page, setPage] = useState(1)
 
 
 
@@ -13,6 +14,9 @@ useEffect(() => {
         const response = await coinApi.get('/coins/markets', {
         params: {
             vs_currency: "usd",
+            order: "market_cap_desc",
+            per_page: 25,
+            page: page
         }
 
     })
@@ -37,7 +41,11 @@ useEffect(() => {
 
     return (
         <div className="coinList shadow border p-2 rounded mt-2 bg-light">
-            {renderedList()}
+            {renderedList()} 
+            <div className="d-flex justify-content-between">
+                <button className="mr-3 mt-4 btn btn-warning">Prev</button>
+                <button className=" mt-4 ml-4 btn btn-warning">Next</button> 
+            </div> 
         </div>
     )
 }
