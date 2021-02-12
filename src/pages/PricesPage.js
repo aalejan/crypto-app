@@ -25,7 +25,7 @@ useEffect(() => {
     pullData()
     console.log(coins)
    
-}, [])
+}, [page])
 
    const renderedList = () => {
        return(
@@ -37,14 +37,20 @@ useEffect(() => {
        )
    }
 
-
+const pageHandler = (direction) => {
+    if(direction === 'back' &&  page > 1){
+        setPage(page - 1)
+    }else if(direction === 'next' && page < 8){
+        setPage(page + 1)
+    }
+}
 
     return (
         <div className="coinList shadow border p-2 rounded mt-2 bg-light">
             {renderedList()} 
             <div className="d-flex justify-content-between">
-                <button className="mr-3 mt-4 btn btn-warning">Prev</button>
-                <button className=" mt-4 ml-4 btn btn-warning">Next</button> 
+                <button onClick={() => pageHandler('back')} className="mr-3 mt-4 btn btn-warning">Prev</button>
+                <button onClick={() => pageHandler('next')} className=" mt-4 ml-4 btn btn-warning">Next</button> 
             </div> 
         </div>
     )
