@@ -23,7 +23,6 @@ useEffect(() => {
         setCoins(response.data)
     } 
     pullData()
-    console.log(coins)
    
 }, [page])
 

@@ -15,7 +15,7 @@ useEffect(() => {
    
     pullData()
  
-}, [coins])
+}, [])
 
 const renderedList = () => {
     return (
@@ -24,9 +24,10 @@ const renderedList = () => {
                 
                     coins.map(coin => {
                         return(
-                            <Link key={coin.item.id} className="text-decoration-none" to={`/coins/${coin.item.id}`} >
+                            <Link key={coin.item.id} className="text-decoration-none " to={`/coins/${coin.item.id}`} >
                             <li className="coilist-item list-group-item list-group-item-action d-flex justify-content-between rounded ">
                               <span ><img src={coin.item.large} alt="" className="coinlist-image "/>  {coin.item.id}</span>
+                              <span className="text-primary"> {coin.item.market_cap_rank}</span>
                             </li>
                           </Link>
                         ) 
@@ -38,8 +39,8 @@ const renderedList = () => {
 }
 
     return (
-        <div>
-            
+        <div className="coinList shadow border p-2 rounded mt-2 bg-light">
+           <div className="d-flex justify-content-end ">Market Cap Rank</div> 
             {renderedList()}
         </div>
     )
