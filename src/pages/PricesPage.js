@@ -45,7 +45,7 @@ const pageHandler = (direction) => {
 }
 
     return (
-        <div className="coinList shadow border p-2 rounded mt-2 bg-light">
+        <div className="coinList shadow border p-2 rounded mt-2 bg-light mb-5">
             {renderedList()} 
             <div className="d-flex justify-content-between">
                 <button onClick={() => pageHandler('back')} className="mr-3 mt-4 btn btn-warning">Prev</button>
