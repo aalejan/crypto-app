@@ -9,6 +9,7 @@ import { WatchListContextProvider } from './context/watchListContext'
 import PricesPage from './pages/PricesPage'
 import NavBar from './components/NavBar'
 import TrendingPage from './pages/TrendingPage'
+import ExchangesPage from './pages/ExchangesPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <BrowserRouter>
           <Header />
           <NavBar />
+          <Route path='/Exchanges' component={ExchangesPage}/>
           <Route path='/Trending' component={TrendingPage} />
           <Route path='/Prices' component={PricesPage} />
           <Route exact path= "/" component={CoinsPage} />

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ExchangeCard = () => {
+const ExchangeCard = ({exchange}) => {
     return (
         <div>
-            
+            {exchange.id}
         </div>
     )
 }
