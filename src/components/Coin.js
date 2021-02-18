@@ -7,7 +7,7 @@ export const Coin = ({coin, deleteCoin, noIcon}) => {
 
     return (
       <Link className="text-decoration-none" to={`/coins/${coin.id}`} >
-        <li className="coilist-item list-group-item list-group-item-action d-flex justify-content-between rounded ">
+        <li className="coilist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded ">
           <span ><img src={coin.image} alt="" className="coinlist-image "/>  {coin.name}</span>
          
           <span className="text-decoration-none">{`$${coin.current_price}`}</span>
