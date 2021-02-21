@@ -23,18 +23,19 @@ const ExchangesPage = () => {
 
     const renderedExchnages = () => {
         return(
-            <div>
+            <ul className="list-group ">
                 {
                     exchanges.map((exchange) => {
                         return <ExchangeCard key={exchange.id} exchange={exchange} />
                     })
                 }
-            </div>
+            </ul>
         )
     }
 
     return (
-        <div>
+        <div className="shadow border p-2 rounded mt-2 bg-light mb-4">
+            <span></span>
             {renderedExchnages()}
         </div>
     )
