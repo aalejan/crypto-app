@@ -34,8 +34,19 @@ const ExchangesPage = () => {
     }
 
     return (
-        <div className="shadow border p-2 rounded mt-2 bg-light mb-4">
-            <span></span>
+        <div className="exchangeList shadow border p-2 rounded mt-2 bg-light mb-4">
+            <div className="container mb-2">
+                <div className="row">
+                    <div className="col-sm">
+                        Exchange
+                    </div>
+                    <div className="col-sm text-center">
+                    Trade Volume 24h BTC
+                    </div>
+                    <div className="col-sm">
+                    </div>
+                </div>
+            </div>
             {renderedExchnages()}
         </div>
     )

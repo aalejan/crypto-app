@@ -20,7 +20,6 @@ ul{
 }
 
 .coinlist{
-    width: 80vw;
   margin:auto;
 }
 
@@ -28,5 +27,8 @@ ul{
     display: flex;
     justify-content: center;
 }
+
+
+
 
 
