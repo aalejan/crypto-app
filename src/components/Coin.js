@@ -21,7 +21,6 @@ export const Coin = ({coin, deleteCoin, noIcon}) => {
             deleteCoin(coin.id)
           }} className={noIcon ? "" :"delete-icon far fa-times-circle text-danger col-sm d-flex justify-content-end" }></i>
           </div>
-         
         </li>
       </Link>
     )
